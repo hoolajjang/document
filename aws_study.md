@@ -1,6 +1,5 @@
 # AWS 막해보기
 
-
 ## Study 시나리오
 ### AWS 맛보기
 1. 기본 EC2 설치
@@ -48,7 +47,18 @@ Default output format [json]:
     - Virtual Box
 - AWS이 예제가 매우 좋은... http://docs.aws.amazon.com/ko_kr/AmazonECR/latest/userguide/get-set-up-for-amazon-ecr.html
 - http://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-basics.html#install_docker
+- 흐름
+  - machine(장비) 셋팅
+  - image pull
+  - image build
 
-### ECR - docker 이미지 레파지토리라고 보면 됨
-### ECS - EC2 기반으로 한 docker container service
+### 개발
 
+### ECR
+ - docker 이미지 레파지토리라고 보면 됨
+
+### ECS
+ - EC2 기반으로 한 docker container service
+
+### CodeCommit
+- 기능 자체가 너무 별로 없음
