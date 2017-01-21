@@ -49,8 +49,30 @@ Default output format [json]:
 - http://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-basics.html#install_docker
 - 흐름
   - machine(장비) 셋팅
-  - image pull
-  - image build
+- 주 명령어
+  - docker images : 가지고 있는 이미지 확인
+  - docker pull : 레파지토리에서 이미지 확보
+  - docker build : 소스를 이미지화 할때 사용
+  - docker run : 이미지를 프로세스에 올림
+  - docker exec : 컨테이너에 명령을 입력할때 사용(이걸로 쉘 접속하는 거임)
+  - docker commit : 현재 컨테이너의 상태를 image로 만듬
+  - docker diff : 현재 컨테이너의 변경점을 확인
+
+```shell
+docker run \
+  --detach \
+  --env MYSQL_ROOT_PASSWORD="ever2489" \
+  --env MYSQL_USER="hoolajjang" \
+  --env MYSQL_PASSWORD="ever2489" \
+  --env MYSQL_DATABASE="wordpress" \
+  --name mysql-wp \
+  --publish 3306:3306 \
+  mysql;
+
+docker run --restart=always --name wordpressdb -e MYSQL_ROOT_PASSWORD=ever2489 -e MYSQL_DATABASE=wordpress -d mysql:latest
+docker run --restart=always -e WORDPRESS_DB_PASSWORD=ever2489 -d --name wordpress --link wordpressdb:mysql -p 8080:80 wordpress
+```
+- 전반적으로 잘 설명되어있는 곳 http://pyrasis.com/Docker/Docker-HOWTO
 
 ### 개발
 
