@@ -1,3 +1,3 @@
 # Document
 
-[Index page](./wiki)
+[Index page](Home)
