@@ -1,1 +1,3 @@
-# document
+# Document
+
+[Index page](wiki)
