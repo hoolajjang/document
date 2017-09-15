@@ -59,3 +59,50 @@
   - Repository
   - Pipelines
 
+===
+
+테스트 환경
+
+http://de-pf01.fttinc.kr:18080/
+root / ftt123!@#
+
+
+java -jar build/libs/test-1.0.0.jar -Dspring.config.location="file:config/localhost/application.yml"
+
+
+java -jar build/libs/test-1.0.0.war -Dspring.config.location="file:config/localhost/application.yml"
+
+
+
+java -Dspring.config.location=file:config/localhost/application.properties -jar build/libs/sample_app-1.0.0.war
+
+
+===
+
+### gitlab runner 설치
+sudo docker run -d --name gitlab-runner --restart always \
+-p 19080:80 \
+-v /srv/gitlab-runner/config:/etc/gitlab-runner \
+-v /var/run/docker.sock:/var/run/docker.sock \
+gitlab/gitlab-runner:latest
+
+
+
+### container 접속 및 runner register
+sudo docker exec -it gitlab-runner /bin/bash
+container ~/> sudo gitlab-runner register
+
+
+
+### 이미지 셋팅
+centos:6
+oraclejdk-8
+
+
+
+
+
+
+
+
+
