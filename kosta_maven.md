@@ -67,14 +67,13 @@
 - conf/tomcat-user.xml 수정 role 적용
 - tomcat plugin 셋팅 in pom.xml
 
+### 배포
+- tomcat7-maven-plugin 을 통해 배포 처리
+- install phase에 redeploy를 등록
 
+### 넥서스
+- ~/.m2/settings.xml
 
-
-
-
-
-
-
-
-
-
+### 젠킨스
+- 자바, 메이븐, 깃 기본 셋팅
+- 빌드 자동 삭제 셋팅
