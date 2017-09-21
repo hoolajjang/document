@@ -7,11 +7,9 @@
 - 비동기 잡 확인할 때 여러개를 한꺼번에 가능한가
 
 
-자료 - https://tinyurl.com/fb-apac-dev-bootcamp
+발표자료 - https://tinyurl.com/fb-apac-dev-bootcamp
 
-센드박스가 있고 여기서 api call 은 얼마든지 사용
-
-
+샌드박스가 있고 여기서 api call 은 얼마든지 사용
 비지니스 계정 - 광고 계정(다수가능)
 결제수단도 계정 단위로 있음.
 
