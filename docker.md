@@ -45,3 +45,5 @@ docker run --restart=always -e WORDPRESS_DB_PASSWORD=ever2489 -d --name wordpres
 ```
 - 전반적으로 잘 설명되어있는 곳 http://pyrasis.com/Docker/Docker-HOWTO
 
+
+- docker login 인증 정보는 docker가 호스트에서 root로 실행되어애 하기 때문에 /root/.docker/config.json에 저장됨
