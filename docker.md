@@ -47,3 +47,18 @@ docker run --restart=always -e WORDPRESS_DB_PASSWORD=ever2489 -d --name wordpres
 
 
 - docker login 인증 정보는 docker가 호스트에서 root로 실행되어애 하기 때문에 /root/.docker/config.json에 저장됨
+
+
+
+- centos6 + oraclejre8 환경으로 이미지 생성
+```
+git clone git@github.com:hoolajjang/docker.git
+cd docker/java/centos6-oraclejre8
+docker build -t centos6-oraclejre8:0.1 ./
+```
+
+- docker hub에서 바로 가져오기
+```
+docker pull hoolajjang/centos6-oraclejre8:0.1
+docker run -d --name java8 -i -t cnetos6-oraclejre8:0.1 /bin/bash 
+```
