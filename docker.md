@@ -43,9 +43,10 @@ docker run \
 docker run --restart=always --name wordpressdb -e MYSQL_ROOT_PASSWORD=ever2489 -e MYSQL_DATABASE=wordpress -d mysql:latest
 docker run --restart=always -e WORDPRESS_DB_PASSWORD=ever2489 -d --name wordpress --link wordpressdb:mysql -p 8080:80 wordpress
 ```
-- 전반적으로 잘 설명되어있는 곳 http://pyrasis.com/Docker/Docker-HOWTO
+- 전반적으로 잘 설명되어있는 곳 http://pyrasis.com/Docker/Docker-HOWTO (이 사람이 docker 책 저자임)
+- docker login 인증 정보는 docker가 호스트에서 root로 실행되어애 하기 때문에 /root/.docker/config.json에 저장됨
 
-
+- 전반적으로 잘 설명되어있는 곳 http://pyrasis.com/Docker/Docker-HOWTO (이 사람이 docker 책 저자임)
 - docker login 인증 정보는 docker가 호스트에서 root로 실행되어애 하기 때문에 /root/.docker/config.json에 저장됨
 
 
@@ -62,3 +63,9 @@ docker build -t centos6-oraclejre8:0.1 ./
 docker pull hoolajjang/centos6-oraclejre8:0.1
 docker run -d --name java8 -i -t cnetos6-oraclejre8:0.1 /bin/bash 
 ```
+
+
+
+
+
+
