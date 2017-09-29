@@ -69,3 +69,9 @@ docker run -d --name java8 -i -t cnetos6-oraclejre8:0.1 /bin/bash
 
 
 
+## 참고
+- http://arisu1000.tistory.com/27795
+- https://subicura.com/2017/02/10/docker-guide-for-beginners-create-image-and-deploy.html
+- http://woowabros.github.io/tools/2017/08/17/ost_bash.html
+- http://hreeman.tistory.com/m/121
+- https://wiki.kldp.org/HOWTO/html/Adv-Bash-Scr-HOWTO/sha-bang.html
