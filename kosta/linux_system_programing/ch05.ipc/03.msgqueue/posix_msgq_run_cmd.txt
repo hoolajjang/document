@@ -1,0 +1,45 @@
+#man mq_open
+#man mq_overview
+
+#cd /proc/sys/fs/mqueue; ls
+
+#gcc mq_rcv.c -lrt -o rcv
+#gcc mq_snd.c -lrt -o snd
+
+
+기본적으로 mq_open()한 file은 보여지지 않음, 아래와 같이 mount 하면 볼 수 있음
+
+#mkdir /dev/mymqueue
+#mount -t mqueue none /dev/mymqueue			//Linux only - non standard
+==> /proc/mounts 에 보임
+==> #mounts
+
+
+#rcv 10
+
+#snd 3
+#snd 5
+#snd 10
+
+#cd /dev/mymqueue; ls  
+
+
+limits
+-----------------------
+/proc/sys/fs/mqueue/msg_max   : 10   --> attr.mq_maxmsg   ->  ~ HARD_MSGMAX
+/proc/sys/fs/mqueue/msgsize_max   : 8192  --> attr.mq_msgsize  -> ~ INT_MAX
+/proc/sys/fs/mqueue/queues_max   : 256 (message queue max number)  --> 	0 ~ INT_MAX
+
+/proc/sys/fs/file_max
+
+
+Linux also provides the RLIMIT_MSGQUEUE resource limit
+-------------------------------------------------------
+bytes = attr.mq_maxmsg * sizeof(struct msg_msg *) +
+attr.mq_maxmsg * attr.mq_msgsize;
+
+
+process max number
+----------------------
+/proc/sys/kernel/threads-max
+

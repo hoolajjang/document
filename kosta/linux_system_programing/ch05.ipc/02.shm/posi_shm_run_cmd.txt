@@ -1,0 +1,14 @@
+#man shm_open
+#man shm_overview 
+
+#cd /run/shm;  ls
+
+#gcc p_counter.c -lrt -o counter
+#gcc p_show_counter.c -lrt -o show_counter
+
+#counter
+#show_counter
+
+
+#cd /run/shm;  ls
+
