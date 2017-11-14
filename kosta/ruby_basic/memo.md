@@ -1,14 +1,14 @@
 Ruby 기초
 ===
 
-#기본사용
+# 기본사용
 
-##실행
+## 실행
 - irb 사용
 - ruby hello.rb 로 파일 실행
 - irb 내에서 load "hello.rb"로 파일 로드
 
-##출력
+## 출력
 ```rb
 #주석은 이걸로
 #puts "한줄출력"
@@ -18,7 +18,7 @@ print "그냥출력"
 print "aaaa"
 puts ('asdjflajsldfjasldf')
 ```
-##변수대입
+## 변수대입
 ```rb
 a,b = 1,2
 puts a
@@ -36,7 +36,7 @@ puts d
 puts e
 ```
 
-##연산자
+## 연산자
 ```rb
 puts "ruby language".reverse
 puts "ruby language".length
@@ -53,7 +53,7 @@ puts str2
 puts str3
 ```
 
-##자료형
+## 자료형
 - 상수는 대문자로 작성할 뿐 변경 가능하다.(경고는 뜸)
 - 자료형에 매우 관대함
 - 숫자는 모두 Number
@@ -76,7 +76,7 @@ c = a + " " + b
 puts a,b,c
 ```
 
-##조건문
+## 조건문
 - if ~ else
 - if ~ elseif ~ else
 ```rb
@@ -106,7 +106,7 @@ else
 end
 ```
 
-##반복문
+## 반복문
 - do ~ end
 ```rb
 list = [1,2,3,4,5]
@@ -132,3 +132,22 @@ for x in arr
 	end
 end
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
