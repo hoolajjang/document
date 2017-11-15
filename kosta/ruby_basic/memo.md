@@ -291,6 +291,180 @@ hash3.each_value do |age|
 end
 ```
 
+## 메소드
+- def ~ end
+- 반환값 없으면 nil 리턴
+- return을 안하면 마지막 실행 결과를 반환
+- 기본값 셋팅 가능
+- 괄호 빼고 호출 가능
+```rb
+def hap1(a,b)
+  puts a+b
+end
+
+def hap2(a,b)
+  return a+b
+end
+
+def hap3(a,b)
+  a+b
+end
+
+def hap4(a,b=10)
+  a+b
+end
+
+def hap5(a,*b)
+  puts a, b
+end
+
+puts hap1(3,4)
+puts hap2(10,20)
+puts hap3(5,6)
+puts hap4(1,2)
+puts hap4(1)
+puts hap4 1,2
+puts hap5(1,2,3,4,5)
+```
+- 블록 메소드
+```rb
+def blockmd
+  yield
+end
+
+def blockmd2(name)
+  yield name
+end
+
+puts blockmd {1+2}
+puts blockmd2("KKH") {|name| puts "이것은 #{name}의 파티입니다."}
+```
+- block_given을 통해 block이 전달되었는지를 판단할 수 있음.
+
+## 클래스
+- class ~ end
+- initialize 생성자 사용
+- 인스턴스변수는 @변수명으로 사용
+- 클래스변수는 @@변수명으로 사용
+```rb
+class Human
+  def initialize(name, age, sex)
+    @name = name
+    @age = age
+    @sex = sex
+  end
+  
+  def eatFood
+    puts "#{name} eat Something."
+  end
+end
+
+kkh = Human.new("Kim Kwanghee", 39, "M")
+puts kkh
+kkh.eatFood
+```
+- reader, writer(getter, setter랑 같은 개념)
+```rb
+class Human
+  #attribute로 셋팅 가능
+  attr_reader :name
+  attr_writer :name
+  
+  attr_accessor :sex
+  
+  def initialize(name, age, sex)
+    @name = name
+    @age = age
+    @sex = sex
+  end
+  
+  def age
+    @age
+  end
+  
+  def age=(value)
+    @age = value
+  end
+end
+
+kkh = Human.new("Kim Kwanghee", 39, "M")
+puts kkh.name, kkh.age, kkh.sex
+kkh.name = "Nam Jin"
+puts kkh.name, kkh.age, kkh.sex
+kkh.age = 36
+puts kkh.name, kkh.age, kkh.sex
+```
+- '<' 이용해서 상속 표기
+- super라는 키워드로 상위 클래스의 메서드를 호출
+```rb
+class Human
+  attr_accessor :name, :age, :sex
+  
+  def initialize(name, age, sex)
+    @name = name
+    @age = age
+    @sex = sex
+  end
+  
+  def eatFood
+    puts "#{name} eat Something."
+  end
+end
+
+class Woman < Human
+  def initialize(name, age)
+    super(name, age, "F")
+  end
+  
+  def hobby
+    puts "#{@name} like 쇼핑..."
+  end
+end
+
+class Man < Human
+  def initialize(name, age)
+    super(name, age, "M")
+  end
+  
+  def hobby
+    puts "#{@name} like 스포츠..."
+  end
+end
+```
+- 오버라이딩은 같은 이름으로 하면 됨
+- 클래스 변수는 @@로 표기
+- 클래스 메소드는 self로 접근
+- 접근제한자 public, private, protected
+
+## 모듈
+- module ~ end
+```rb
+module Bucket
+  MAX_ACCESSORY=100
+  def announcig_accessory
+    puts "aaaaaaaaaaaa"
+  end
+end
+
+puts Bucket::MAX_ACCESSORY
+
+class Announcer
+  include Bucket
+end
+```
+- require로 불러다 쓸 수 있음
+
+## 파일처리
+- File.open("파일명", "모드") 를 사용하면 close로 닫아줘야 함
+- File.open("파일명", "모드") {|file| file.read}로 하면 다 읽고 자동으로 닫힘
+- 커서 개념이 있어서 읽거나 쓸때 커서를 이동 시켜줘야 함
+```rb
+file = File.open("test.txt", "r")
+file.puts "Once upon a time."
+puts file.read
+file.rewind
+file.close
+```
 
 ## 연습
 - 숫자를 입력받고 배열에 저장하면서 q를 입력하면 짝수, 홀수 각각 합을 출력하고 종료
@@ -392,14 +566,33 @@ end
 
 puts menus
 ```
+- 인수 개수를 다양하게 하여 사용할 수 있는 sum이라는 메소드를 정의하시오.
+```rb
+def sum(*a)
+  r = 0
+  a.each do |d|
+    r += d
+  end
+  return r
+end
 
+puts sum(1,2,3,4,5)
+```
+- 주어진 문자열의 각 단어가 나오는 횟수를 계산하여 출력
+```rb
+def words_from_string(string)
+  string.downcase.scan(/[\w']+/)
+end
 
+def wordCounter(words)
+  ht = Hash.new(0)
+  
+  words.each do |ch|
+    ht[ch.to_sym] += 1
+  end
+  puts ht
+end
 
-
-
-
-
-
-
-
-
+word_list = words_from_string("hello world!! I'm Kim Kwanghee Kwanghee Kwanghee")
+wordCounter(word_list)
+```
