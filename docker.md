@@ -46,24 +46,38 @@ docker run --restart=always -e WORDPRESS_DB_PASSWORD=ever2489 -d --name wordpres
 - 전반적으로 잘 설명되어있는 곳 http://pyrasis.com/Docker/Docker-HOWTO (이 사람이 docker 책 저자임)
 - docker login 인증 정보는 docker가 호스트에서 root로 실행되어애 하기 때문에 /root/.docker/config.json에 저장됨
 
-- 전반적으로 잘 설명되어있는 곳 http://pyrasis.com/Docker/Docker-HOWTO (이 사람이 docker 책 저자임)
-- docker login 인증 정보는 docker가 호스트에서 root로 실행되어애 하기 때문에 /root/.docker/config.json에 저장됨
-
-
-
-- centos6 + oraclejre8 환경으로 이미지 생성
+- centos6 + oraclejre8 환경으로 이미지 생성(Dockerfile 필요)
 ```
 git clone git@github.com:hoolajjang/docker.git
 cd docker/java/centos6-oraclejre8
 docker build -t centos6-oraclejre8:0.1 ./
 ```
 
-- docker hub에서 바로 가져오기
+- docker hub에서 바로 가져오기(pull 생략 가능)
 ```
 docker pull hoolajjang/centos6-oraclejre8:0.1
 docker run -d --name java8 -i -t cnetos6-oraclejre8:0.1 /bin/bash 
 ```
 
+- docker container 정리
+```
+docker ps -a |  grep "pattern”
+docker ps -a | grep "pattern" | awk '{print $3}' | xargs docker rmi
+
+- docker image 정리
+```
+docker images -a |  grep "pattern"
+docker images -a | grep "pattern" | awk '{print $3}' | xargs docker rmi
+```
+
+- CoreUI-Vue 생성 스크립트
+```sh
+git clone git@github.com:hoolajjang/coreui-free-vue-admin-template.git coreui
+cd coreui
+docker build -t hoolajjang/coreui-vue .
+docker run -d --name coreui -it -p 8080:8080 hoolajjang/coreui-vue:latest
+docker exec -it coreui /bin/bash
+```
 
 
 
